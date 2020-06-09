@@ -19,6 +19,10 @@ const BoardWrapper = styled.div`
 const BoardMarkup = ({ lanes, loading, error, data }) => {
   const [tickets, setTickets] = useState([])
 
+  const onDragStart = (evt, id) => {
+    evt.dataTransfer.setData('id', id)
+  }
+
   useEffect(() => {
     setTickets(data)
   }, [data])
@@ -32,6 +36,7 @@ const BoardMarkup = ({ lanes, loading, error, data }) => {
           loading={loading}
           error={error}
           tickets={tickets.filter(ticket => ticket.lane === lane.id)}
+          onDragStart={onDragStart}
         />
       ))}
     </BoardWrapper>

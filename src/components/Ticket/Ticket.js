@@ -20,9 +20,9 @@ const Title = styled.h3`
 const Body = styled.p`
   width: 100%;
 `
-export const Ticket = ({ ticket }) => {
+export const Ticket = ({ ticket, onDragStart }) => {
   return (
-    <TicketWrapper>
+    <TicketWrapper draggable onDragStart={e => onDragStart(e, ticket.id)}>
       <Title>{ticket.title}</Title>
       <Body>{ticket.body}</Body>
     </TicketWrapper>
