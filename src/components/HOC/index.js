@@ -1,0 +1,1 @@
+export { withDataFetching } from './withDataFetching'

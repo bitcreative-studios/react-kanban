@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import withDataFetching from '../components/withDataFetching'
-import Lane from '../components/Lane/Lane'
+import { Lane } from '..'
+import { withDataFetching } from '../HOC'
 
 const BoardWrapper = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ const BoardWrapper = styled.div`
   }
 `
 
-const Board = ({ lanes, loading, error, data }) => (
+const BoardMarkup = ({ lanes, loading, error, data }) => (
   <BoardWrapper>
     {lanes.map(lane => (
       <Lane
@@ -30,9 +30,9 @@ const Board = ({ lanes, loading, error, data }) => (
   </BoardWrapper>
 )
 
-const BoardWithData = withDataFetching(Board)
+export const Board = withDataFetching(BoardMarkup)
 
-BoardWithData.propTypes = {
+Board.propTypes = {
   /* The location of the data */
   dataSource: PropTypes.string.isRequired,
 
@@ -44,5 +44,3 @@ BoardWithData.propTypes = {
     })
   ),
 }
-
-export default BoardWithData

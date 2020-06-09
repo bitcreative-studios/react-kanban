@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Ticket from '../Ticket'
+import { Ticket } from '..'
 
 const TicketsWrapper = styled.div`
   padding: 5%;
@@ -31,7 +31,7 @@ const Title = styled.h2`
   border-bottom: 1px solid darkGray;
 `
 
-const Lane = ({ tickets, loading, error, title }) => (
+export const Lane = ({ tickets, loading, error, title }) => (
   <LaneWrapper>
     <Title>{title}</Title>
     {(loading || error) && <Alert>{loading ? 'Loading...' : error}</Alert>}
@@ -42,5 +42,3 @@ const Lane = ({ tickets, loading, error, title }) => (
     </TicketsWrapper>
   </LaneWrapper>
 )
-
-export default Lane

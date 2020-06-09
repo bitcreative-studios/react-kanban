@@ -17,10 +17,8 @@ const Title = styled.h1`
   pointer-events: none;
 `
 
-const Header = () => (
+export const Header = () => (
   <HeaderWrapper>
     <Title>Project Management Board</Title>
   </HeaderWrapper>
 )
-
-export default Header

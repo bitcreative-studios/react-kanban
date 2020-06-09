@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
  * @param {React.ReactNode} Component The component you wish to inject data into
  * @return {function({dataSource: string, [p: string]: *}): *}
  */
-const withDataFetching = Component => {
+export const withDataFetching = Component => {
   /**
    *
    * @param {string} dataSource The location of the data source
@@ -46,5 +46,3 @@ const withDataFetching = Component => {
   }
   return ComponentWithData
 }
-
-export default withDataFetching

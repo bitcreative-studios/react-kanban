@@ -20,7 +20,7 @@ const Title = styled.h3`
 const Body = styled.p`
   width: 100%;
 `
-const Ticket = ({ ticket }) => {
+export const Ticket = ({ ticket }) => {
   return (
     <TicketWrapper>
       <Title>{ticket.title}</Title>
@@ -29,6 +29,9 @@ const Ticket = ({ ticket }) => {
   )
 }
 
-Ticket.propTypes = {}
-
-export default Ticket
+Ticket.propTypes = {
+  ticket: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }),
+}
