@@ -38,33 +38,16 @@ const App = () => {
     { id: 3, title: 'Review' },
     { id: 4, title: 'Done' },
   ]
+  const dataURL = path.resolve(__dirname, '..', '..', 'assets', 'data.json')
 
   return (
     <>
       <GlobalStyle />
       <AppWrapper>
         <Header />
-        <Board
-          dataSource={path.resolve(
-            __dirname,
-            '..',
-            '..',
-            'assets',
-            'data.json'
-          )}
-          lanes={lanes}
-        />
+        <Board dataSource={dataURL} lanes={lanes} />
         <TicketsWrapper>
-          <Tickets
-            dataSource={path.resolve(
-              __dirname,
-              '..',
-              '..',
-              'assets',
-              'data.json'
-            )}
-            lanes={lanes}
-          />
+          <Tickets dataSource={dataURL} lanes={lanes} />
         </TicketsWrapper>
       </AppWrapper>
     </>
