@@ -3,10 +3,17 @@ import PropTypes from 'prop-types'
 
 /**
  *
- * @param Component
- * @return {function({dataSource?: *}): *}
+ * @param {React.ReactNode} Component The component you wish to inject data into
+ * @return {function({dataSource: string, [p: string]: *}): *}
  */
 const withDataFetching = Component => {
+  /**
+   *
+   * @param {string} dataSource The location of the data source
+   * @param {object} props Any props the wrapped component accepts
+   * @return {*}
+   * @constructor
+   */
   const ComponentWithData = ({ dataSource, ...props }) => {
     const [data, setData] = useState([])
     const [isLoading, setLoadingStatus] = useState(false)

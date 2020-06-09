@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import withDataFetching from '../components/withDataFetching'
@@ -15,20 +16,33 @@ const BoardWrapper = styled.div`
   }
 `
 
-function Board({ lanes, loading, error, data }) {
-  return (
-    <BoardWrapper>
-      {lanes.map(lane => (
-        <Lane
-          key={lane.id}
-          title={lane.title}
-          loading={loading}
-          error={error}
-          tickets={data.filter(ticket => ticket.lane === lane.id)}
-        />
-      ))}
-    </BoardWrapper>
-  )
+const Board = ({ lanes, loading, error, data }) => (
+  <BoardWrapper>
+    {lanes.map(lane => (
+      <Lane
+        key={lane.id}
+        title={lane.title}
+        loading={loading}
+        error={error}
+        tickets={data.filter(ticket => ticket.lane === lane.id)}
+      />
+    ))}
+  </BoardWrapper>
+)
+
+const BoardWithData = withDataFetching(Board)
+
+BoardWithData.propTypes = {
+  /* The location of the data */
+  dataSource: PropTypes.string.isRequired,
+
+  /* The individual columns of the board */
+  lanes: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+    })
+  ),
 }
 
-export default withDataFetching(Board)
+export default BoardWithData
