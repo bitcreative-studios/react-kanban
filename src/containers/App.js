@@ -1,3 +1,4 @@
+import path from 'path'
 import React, { Component } from 'react'
 import styled, { createGlobalStyle } from 'styled-components'
 import Board from './Board'
@@ -19,18 +20,32 @@ const AppWrapper = styled.div`
   text-align: center;
 `
 
-class App extends Component {
-  render() {
-    return (
-      <>
-        <GlobalStyle />
-        <AppWrapper>
-          <Header />
-          <Board />
-        </AppWrapper>
-      </>
-    )
-  }
+const App = () => {
+  const lanes = [
+    { id: 1, title: 'To Do' },
+    { id: 2, title: 'In Progress' },
+    { id: 3, title: 'Review' },
+    { id: 4, title: 'Done' },
+  ]
+
+  return (
+    <>
+      <GlobalStyle />
+      <AppWrapper>
+        <Header />
+        <Board
+          dataSource={path.resolve(
+            __dirname,
+            '..',
+            '..',
+            'assets',
+            'data.json'
+          )}
+          lanes={lanes}
+        />
+      </AppWrapper>
+    </>
+  )
 }
 
 export default App

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+
+import withDataFetching from '../components/withDataFetching'
 import Lane from '../components/Lane/Lane'
 
 const BoardWrapper = styled.div`
@@ -13,41 +15,14 @@ const BoardWrapper = styled.div`
   }
 `
 
-function Board() {
-  const lanes = [
-    { id: 1, title: 'To Do' },
-    { id: 2, title: 'In Progress' },
-    { id: 3, title: 'Review' },
-    { id: 4, title: 'Done' },
-  ]
-  const [data, setData] = useState([])
-  const [isLoading, setLoadingStatus] = useState(false)
-  const [error, setError] = useState('')
-
-  const fetchDataOnMount = async () => {
-    try {
-      const tickets = await fetch('../../assets/data.json')
-      const ticketsJSON = await tickets.json()
-
-      if (ticketsJSON) {
-        setData(ticketsJSON)
-        setLoadingStatus(false)
-      }
-    } catch (e) {
-      setLoadingStatus(false)
-      setError(e.message)
-    }
-  }
-
-  useEffect(fetchDataOnMount, [])
-
+function Board({ lanes, loading, error, data }) {
   return (
     <BoardWrapper>
       {lanes.map(lane => (
         <Lane
           key={lane.id}
           title={lane.title}
-          loading={isLoading}
+          loading={loading}
           error={error}
           tickets={data.filter(ticket => ticket.lane === lane.id)}
         />
@@ -56,4 +31,4 @@ function Board() {
   )
 }
 
-export default Board
+export default withDataFetching(Board)
