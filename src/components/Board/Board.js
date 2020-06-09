@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -16,19 +16,27 @@ const BoardWrapper = styled.div`
   }
 `
 
-const BoardMarkup = ({ lanes, loading, error, data }) => (
-  <BoardWrapper>
-    {lanes.map(lane => (
-      <Lane
-        key={lane.id}
-        title={lane.title}
-        loading={loading}
-        error={error}
-        tickets={data.filter(ticket => ticket.lane === lane.id)}
-      />
-    ))}
-  </BoardWrapper>
-)
+const BoardMarkup = ({ lanes, loading, error, data }) => {
+  const [tickets, setTickets] = useState([])
+
+  useEffect(() => {
+    setTickets(data)
+  }, [data])
+
+  return (
+    <BoardWrapper>
+      {lanes.map(lane => (
+        <Lane
+          key={lane.id}
+          title={lane.title}
+          loading={loading}
+          error={error}
+          tickets={tickets.filter(ticket => ticket.lane === lane.id)}
+        />
+      ))}
+    </BoardWrapper>
+  )
+}
 
 export const Board = withDataFetching(BoardMarkup)
 

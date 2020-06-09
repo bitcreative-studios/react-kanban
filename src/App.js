@@ -1,5 +1,5 @@
-import path from 'path'
 import React from 'react'
+import path from 'path'
 import styled, { createGlobalStyle } from 'styled-components'
 
 import { Header, Board, Tickets } from './components'
@@ -22,8 +22,8 @@ const AppWrapper = styled.div`
 
 const TicketsWrapper = styled.div`
   display: grid;
-  grid-auto-flow: column;
-  grid-gap: 1rem;
+  grid-auto-flow: row;
+  //grid-gap: 1rem;
   margin: 5%;
 
   @media (max-width: 768px) {
@@ -46,9 +46,6 @@ const App = () => {
       <AppWrapper>
         <Header />
         <Board dataSource={dataURL} lanes={lanes} />
-        <TicketsWrapper>
-          <Tickets dataSource={dataURL} lanes={lanes} />
-        </TicketsWrapper>
       </AppWrapper>
     </>
   )
