@@ -23,20 +23,39 @@ const BoardMarkup = ({ lanes, loading, error, data }) => {
     evt.dataTransfer.setData('id', id)
   }
 
+  const onDragOver = evt => {
+    evt.preventDefault()
+  }
+
+  const onDrop = (e, laneId) => {
+    // ticket id of dragged ticket
+    const id = e.dataTransfer.getData('id')
+    const _tickets = tickets.filter(ticket => {
+      if (ticket.id === parseInt(id)) {
+        ticket.lane = laneId
+      }
+      return ticket
+    })
+    setTickets(_tickets)
+  }
+
   useEffect(() => {
     setTickets(data)
-  }, [data])
+  }, [data, tickets])
 
   return (
     <BoardWrapper>
       {lanes.map(lane => (
         <Lane
           key={lane.id}
+          laneId={lane.id}
           title={lane.title}
           loading={loading}
           error={error}
           tickets={tickets.filter(ticket => ticket.lane === lane.id)}
           onDragStart={onDragStart}
+          onDragOver={onDragOver}
+          onDrop={onDrop}
         />
       ))}
     </BoardWrapper>

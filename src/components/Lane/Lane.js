@@ -31,13 +31,27 @@ const Title = styled.h2`
   border-bottom: 1px solid darkGray;
 `
 
-export const Lane = ({ tickets, loading, error, title, onDragStart }) => (
-  <LaneWrapper>
+export const Lane = ({
+  tickets,
+  loading,
+  error,
+  title,
+  onDragStart,
+  onDragOver,
+  onDrop,
+  laneId,
+}) => (
+  <LaneWrapper onDragOver={onDragOver} onDrop={e => onDrop(e, laneId)}>
     <Title>{title}</Title>
     {(loading || error) && <Alert>{loading ? 'Loading...' : error}</Alert>}
     <TicketsWrapper>
       {tickets.map(ticket => (
-        <Ticket key={ticket.id} ticket={ticket} onDragStart={onDragStart} />
+        <Ticket
+          key={ticket.id}
+          ticket={ticket}
+          onDragStart={onDragStart}
+          onDrop={onDrop}
+        />
       ))}
     </TicketsWrapper>
   </LaneWrapper>

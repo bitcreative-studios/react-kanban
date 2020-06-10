@@ -12,44 +12,39 @@
     "body": "hasellus eleifend lacus vitae est ultrices placerat. Nunc at risus id risus venenatis laoreet sit amet cursus neque.",
     "lane": 2
   },{
-    "id": 2,
+    "id": 3,
     "title": "consectetur adipisicing elit.",
     "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque facilis, maiores. Dolore inventore nemo optio perferendis quod repudiandae suscipit voluptate? Cum inventore nostrum numquam officiis optio quasi sequi suscipit velit.",
     "lane": 2
   },{
-    "id": 2,
+    "id": 4,
     "title": "Release new website",
     "body": "Blanditiis commodi eum libero maiores, officia quibusdam quidem repellendus sit soluta tempora ullam veniam voluptate voluptatibus! Adipisci animi at corporis dignissimos error, expedita mollitia nisi non quia quos sit Aliquid corporis dolor eveniet ex, illo laborum veritatis? Accusamus, aliquid amet deserunt fuga harum id iure, maiores nemo numquam optio porro possimus, quaerat sint sit temporibus ut velit vero! Excepturi facilis inventore ipsam molestiae optio quae?",
     "lane": 2
   },
   {
-    "id": 3,
+    "id": 5,
     "title": "Change button color",
     "body": "Suspendisse ac lorem a neque tempus luctus non aliquam sapien. Cras ut lacus bibendum, placerat nibh eu, tempus neque.",
     "lane": 3
   },
   {
-    "id": 4,
+    "id": 6,
     "title": "Deploy server on acceptance environment",
     "body": "Pellentesque pharetra fermentum sapien, aliquet ultrices ligula mattis porttitor.",
     "lane": 3
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Change layout for the content page",
     "body": "Cras tellus ligula, mattis at facilisis eu, ultricies vel elit. Ut aliquam volutpat lacus, a rutrum sem vulputate non.",
     "lane": 1
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "Complete the registration flow",
     "body": "In vel commodo ipsum. Duis id ipsum semper, condimentum ipsum sit amet, maximus massa.",
     "lane": 4
-  },
-  {
-    "id": 7,
-    "title": "Create new database instance",
-    "body": "Curabitur nec sem lorem. Donec venenatis, arcu vitae malesuada consequat, dolor ante placerat mi, in fermentum diam ipsum id libero.Curabitur nec sem lorem.\n\nDonec venenatis, arcu vitae malesuada consequat, dolor ante placerat mi, in fermentum diam ipsum id libero.",
-    "lane": 4
   }
+
 ]
